@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utpal Nath Rai - AI/ML Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 60px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            color: #ffd700;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section h2 {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .project-title {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .project-tech {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 2px;
+        }
+
+        .project-description {
+            margin: 15px 0;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .accuracy-badge {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            background: #5a67d8;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .timeline-degree {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .timeline-school {
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .timeline-grade {
+            color: #48bb78;
+            font-weight: 500;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .achievement-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d69e2e;
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-img">
+                <img src="utpal.jpg" alt="Utpal Nath Rai" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            </div>
+            <h1>Utpal Nath Rai</h1>
+            <p class="subtitle">AI/ML Engineer | M.Tech Student | Deep Learning Enthusiast</p>
+            <div class="contact-info">
+                <a href="mailto:raiutpal245@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>raiutpal245@gmail.com</span>
+                </a>
+                <a href="tel:+919795887943" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+919795887943</span>
+                </a>
+                <a href="https://www.linkedin.com/in/utpal-nath-rai-452b5616b/" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/rai-utpal-08" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section">
+            <h2><i class="fas fa-user-graduate"></i> About Me</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; color: #4a5568;">
+                I'm a passionate M.Tech student in Computer Science with specialization in AI & Machine Learning at VIT, Tamil Nadu. 
+                With a strong foundation in deep learning, multimodal AI systems, and automation tools, I'm dedicated to solving 
+                real-world problems through innovative AI solutions. I have hands-on experience in developing projects ranging from 
+                pneumonia detection systems to self-driving car simulations, showcasing my ability to apply theoretical knowledge 
+                to practical applications.
+            </p>
+            
+            <div class="stats-grid" style="margin-top: 30px;">
+                <a href="#education" style="text-decoration:none;">
+                    <div class="stat-card" style="cursor:pointer;">
+                        <span class="stat-number">9.31</span>
+                        <span>Current CGPA</span>
+                    </div>
+                </a>
+                <a href="#projects" style="text-decoration:none;">
+                    <div class="stat-card" style="cursor:pointer;">
+                        <span class="stat-number">4+</span>
+                        <span>Major Projects</span>
+                    </div>
+                </a>
+                <a href="#achievements" style="text-decoration:none;">
+                    <div class="stat-card" style="cursor:pointer;">
+                        <span class="stat-number">GATE</span>
+                        <span>Qualified 2023 & 2024</span>
+                    </div>
+                </a>
+                <div class="stat-card">
+                    <span class="stat-number">97%</span>
+                    <span>Best Model Accuracy</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section" id="projects">
+            <h2><i class="fas fa-code"></i> Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Multimodal Pneumonia Detection System</h3>
+                    <div style="margin-bottom: 15px;">
+                        <span class="project-tech">Python</span>
+                        <span class="project-tech">TensorFlow</span>
+                        <span class="project-tech">DenseNet121</span>
+                        <span class="project-tech">Transfer Learning</span>
+                    </div>
+                    <div class="accuracy-badge">🎯 97% Accuracy Achieved</div>
+                    <p class="project-description">
+                        Developed a novel multimodal deep learning framework combining chest X-rays and breathing sounds for pneumonia detection. 
+                        Implemented late fusion technique with comparative analysis of multiple transfer learning models.
+                    </p>
+                    <p><strong>Research Impact:</strong> Paper under review for publication in 2025</p>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Self-Driving Car Simulation System</h3>
+                    <div style="margin-bottom: 15px;">
+                        <span class="project-tech">Python</span>
+                        <span class="project-tech">TensorFlow</span>
+                        <span class="project-tech">Computer Vision</span>
+                        <span class="project-tech">NVIDIA Architecture</span>
+                    </div>
+                    <div class="accuracy-badge">🚗 94.22% Steering Accuracy</div>
+                    <p class="project-description">
+                        Built a deep learning model to predict steering angles from video data by converting videos into frame-by-frame images. 
+                        Achieved impressive accuracy metrics with custom MAE of 3.47 on final model evaluation.
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">AI-Powered Cold Email Automation</h3>
+                    <div style="margin-bottom: 15px;">
+                        <span class="project-tech">Python</span>
+                        <span class="project-tech">NLP</span>
+                        <span class="project-tech">GPT</span>
+                        <span class="project-tech">Streamlit</span>
+                        <span class="project-tech">SQLite</span>
+                    </div>
+                    <p class="project-description">
+                        Developed modular AI-driven email automation system with web scraping, data cleaning, and intelligent skill matching. 
+                        Built TF-IDF vectorization algorithm with cosine similarity for job-candidate profile matching.
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">PDF Question Answering System</h3>
+                    <div style="margin-bottom: 15px;">
+                        <span class="project-tech">Python</span>
+                        <span class="project-tech">FAISS</span>
+                        <span class="project-tech">LangChain</span>
+                        <span class="project-tech">LLM</span>
+                        <span class="project-tech">Streamlit</span>
+                    </div>
+                    <p class="project-description">
+                        Created an intelligent QA system that extracts answers from PDF documents using advanced semantic search. 
+                        Implemented Google X-lant embeddings for improved response accuracy with user-friendly Streamlit interface.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Skills Section -->
+        <div class="section" id="skills">
+            <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Kotlin</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>AI/ML Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">FAISS</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>NLP & Transformers</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">BERT</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">Word Embeddings</span>
+                        <span class="skill-tag">Attention Mechanisms</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Deep Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">Transfer Learning</span>
+                        <span class="skill-tag">ResNet</span>
+                        <span class="skill-tag">DenseNet</span>
+                        <span class="skill-tag">VGG</span>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="skill-category">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Random Forest</span>
+                        <span class="skill-tag">Decision Trees</span>
+                        <span class="skill-tag">Support Vector Machines</span>
+                        <span class="skill-tag">Feature Engineering</span>
+                        <span class="skill-tag">Model Selection and Evaluation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Core Concepts</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Data Structures & Algorithms</span>
+                        <span class="skill-tag">OOPs</span>
+                        <span class="skill-tag">Database Management System</span>
+                        <span class="skill-tag">Operating Systems</span>
+                        <span class="skill-tag">Computer Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section" id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-degree">M.Tech in Computer Science Engineering (AI & ML)</div>
+                    <div class="timeline-school">Vellore Institute of Technology, Tamil Nadu</div>
+                    <div class="timeline-grade">CGPA: 9.31 | 2024 - 2026</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-degree">B.Tech in Computer Science Engineering</div>
+                    <div class="timeline-school">United College of Engineering and Research, Prayagraj</div>
+                    <div class="timeline-grade">CGPA: 7.99 | 2020 - 2023</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-degree">Diploma in Information Technology</div>
+                    <div class="timeline-school">Government Polytechnic Mirzapur</div>
+                    <div class="timeline-grade">79.13% | 2017 - 2020</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="section" id="achievements">
+            <h2><i class="fas fa-trophy"></i> Achievements & Certifications</h2>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div>
+                    <strong>GATE Qualified</strong> - Computer Science Engineering (2023 & 2024)
+                    <br>
+                    <a href="https://drive.google.com/file/d/1ei6Fz10xFlRpvuwZYjLrYuI-LqrxDqGH/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View 2023 Scorecard
+                    </a>
+                    &nbsp;|&nbsp;
+                    <a href="https://drive.google.com/file/d/1CUzM-i5N9Tv9A-4fY8w8ryhGkoIUsBEe/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View 2024 Scorecard
+                    </a>
+                </div>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div>
+                    <strong>Merit Scholarship</strong> - M.Tech 2024-25 Academic Excellence
+                    <br>
+                    <a href="https://everify.vit.ac.in/validate/univ/services/7018743ef166d6636e4cf40be43d4dffb6f50ec2bd230d8fbc1cdfa52ed116bfa3457fe76249b7a5cf98219c4478d3a9" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+            
+            <div class="achievement-card">
+                <div class="achievement-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div>
+                    <strong>Perfect Attendance</strong> - 100% Attendance in M.Tech 2024-25
+                    <br>
+                    <a href="https://everify.vit.ac.in/validate/univ/services/7d9aecb951d214292d06af79c3c46188dbc8f00b5857f1cbb91811c1ffe06d06c5540f77e8c9fd06c55bcdb2bdec8617" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; color: #4a5568;">Professional Certifications</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0; border-left: 3px solid #667eea; padding-left: 15px; margin-bottom: 10px;">
+                    <strong>Machine Learning</strong> - United Global Infoservice (60+ hours, 2021)
+                    <br>
+                    <a href="https://drive.google.com/file/d/1C5JxsBPnOceObXgdGWNJLl29S2zIkB3K/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </li>
+                <li style="padding: 8px 0; border-left: 3px solid #667eea; padding-left: 15px; margin-bottom: 10px;">
+                    <strong>Advanced Java</strong> - United Global Infoservice (60+ hours, 2022)
+                    <br>
+                    <a href="https://drive.google.com/file/d/1ACuUk5mFjiUq1VR64jUmFXTo5DNxV3dq/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </li>
+                <li style="padding: 8px 0; border-left: 3px solid #667eea; padding-left: 15px; margin-bottom: 10px;">
+                    <strong>Data Structures & Algorithms</strong> - TheCodingAdda (30+ hours, 2022)
+                    <br>
+                    <a href="https://drive.google.com/file/d/1C34bMbmWEFl_arZ__uZw5AZ0OekmFKzc/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </li>
+                <li style="padding: 8px 0; border-left: 3px solid #667eea; padding-left: 15px; margin-bottom: 10px;">
+                    <strong>Kotlin Development</strong> - Udemy (7+ hours, 2023)
+                    <br>
+                    <a href="https://drive.google.com/file/d/1T5OEq7Zv-H6Eev8Kmk0ZqmuDuyVSDnJ6/view?usp=sharing" target="_blank" style="color:#667eea; text-decoration:underline;">
+                        View Certificate
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🚀 Ready to contribute to innovative AI solutions and make a meaningful impact in the tech industry</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                <i class="fas fa-heart" style="color: #ff6b6b;"></i> 
+                Built with passion for AI & Technology
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill tags on hover
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(2deg)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+
+            // Add typing effect to the subtitle
+            const subtitle = document.querySelector('.subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+
+            // Animate stats on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
